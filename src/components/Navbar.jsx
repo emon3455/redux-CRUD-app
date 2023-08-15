@@ -10,8 +10,6 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
-import { Badge } from '@mui/material';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -31,13 +29,15 @@ function ResponsiveAppBar() {
       </Button>
 
       <Button sx={{ color: { xs: 'black', md: 'white' } }}>
-        <Link to="/cart" style={{ textDecoration: 'none', color: "inherit" }}>
-          <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-            <Badge badgeContent={4} color="error">
-              <ShoppingCartIcon />
-            </Badge>
-          </IconButton>
-        </Link>
+        <Link to="/books" style={{ textDecoration: 'none' , color: "inherit" }}>Books</Link>
+      </Button>
+
+      <Button sx={{ color: { xs: 'black', md: 'white' } }}>
+        <Link to="/addBook" style={{ textDecoration: 'none' , color: "inherit" }}>Add-Book</Link>
+      </Button>
+
+      <Button sx={{ color: { xs: 'black', md: 'white' } }}>
+        <Link to="/manageBooks" style={{ textDecoration: 'none' , color: "inherit" }}>Manage-Books</Link>
       </Button>
 
       <Button sx={{ color: { xs: 'black', md: 'white' } }}>

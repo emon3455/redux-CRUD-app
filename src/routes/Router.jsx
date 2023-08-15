@@ -4,8 +4,10 @@ import {
 import Main from "../layout/Main";
 import Error from "../pages/error/Error";
 import Home from "../pages/home/Home";
-import Cart from "../pages/cart/Cart";
 import Login from "../pages/login/Login";
+import Books from "../pages/books/Books";
+import AddBooks from "../pages/addBooks/AddBooks";
+import ManageBooks from "../pages/manageBooks/ManageBooks";
 
 const router = createBrowserRouter([
     {
@@ -18,8 +20,16 @@ const router = createBrowserRouter([
             element: <Home/>
         },
         {
-            path: "/cart",
-            element: <Cart/>
+            path: "/books",
+            element: <Books/>
+        },
+        {
+          path: "/addBook",
+          element: <AddBooks/>
+        },
+        {
+          path: "/manageBooks",
+          element: <ManageBooks/>
         },
         {
           path: "/login",
