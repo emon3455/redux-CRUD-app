@@ -9,8 +9,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-
-const pages = ['Books', 'Manage-Books', 'Login'];
+import { Link } from 'react-router-dom';
+import { Badge } from '@mui/material';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -23,19 +24,40 @@ function ResponsiveAppBar() {
     setAnchorElNav(null);
   };
 
+  const navMenu = <>
+    <Box sx={{ display: 'flex' , flexDirection: { xs: 'column', md: 'row' } }}>
+      <Button sx={{ color: { xs: 'black', md: 'white' } }}>
+        <Link to="/" style={{ textDecoration: 'none' , color: "inherit" }}>Home</Link>
+      </Button>
+
+      <Button sx={{ color: { xs: 'black', md: 'white' } }}>
+        <Link to="/cart" style={{ textDecoration: 'none', color: "inherit" }}>
+          <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+            <Badge badgeContent={4} color="error">
+              <ShoppingCartIcon />
+            </Badge>
+          </IconButton>
+        </Link>
+      </Button>
+
+      <Button sx={{ color: { xs: 'black', md: 'white' } }}>
+        <Link to="/login" style={{ textDecoration: 'none', color:"inherit" }} >Login</Link>
+      </Button>
+    </Box>
+  </>
+
   return (
     <AppBar position="static" sx={{ backgroundColor: '#9365df' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ justifyContent: 'space-between' }}>
           <Typography
-            variant="h6"
+            variant="h5"
             noWrap
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
@@ -72,14 +94,13 @@ function ResponsiveAppBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography href="/admin" textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              <MenuItem onClick={handleCloseNavMenu}>
+                {navMenu}
+              </MenuItem>
+
             </Menu>
           </Box>
-          
+
 
           <Typography
             variant="h5"
@@ -100,15 +121,7 @@ function ResponsiveAppBar() {
             Book-Hub
           </Typography>
           <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
+            {navMenu}
           </Box>
 
         </Toolbar>
