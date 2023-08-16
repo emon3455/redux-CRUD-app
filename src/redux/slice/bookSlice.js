@@ -3,23 +3,24 @@ import { createSlice } from "@reduxjs/toolkit"
 const bookSlice = createSlice({
     name :"books",
     initialState : [
-        {id: "1", name: "Emoni", author: "Emon"},
-        {id: "2", name: "Uronto Somoy", author: "Elina"},
+        {id: "1", name: "Emoni",price: "100", author: "Emon"},
+        {id: "2", name: "Uronto Somoy",price: "200", author: "Elina"},
+        {id: "3", name: "Nirob Somoy",price: "50", author: "Ojana"},
     ],
     reducers:{
         showBooks: (state)=> state,
         addbooks: (state, action)=>{
             state.books.push(action.payload)
         },
-        removeBooks: (state, action)=>{
-            state.books = state.books.filter(item=> item.id !== action.payload)
+        removeBooks: (state, action) => {
+            return state.filter(item => item.id !== action.payload)
         },
         updateBook: (state, action)=>{
             const {id, name, author} = action.payload
-            const isBookExist = state.books.filter(item=> item.id === id)
+            const isBookExist = state.books.find(item=> item.id === id)
             if(isBookExist){
-                isBookExist[0].name = name
-                isBookExist[0].author = author
+                isBookExist.name = name
+                isBookExist.author = author
             }
         }
     }

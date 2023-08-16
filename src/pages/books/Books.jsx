@@ -1,9 +1,9 @@
 
-
 const Books = () => {
     return (
         <div>
-            all books
+            <h2 className="text-4xl font-extrabold text-center">All Books</h2>
+            
         </div>
     );
 };
