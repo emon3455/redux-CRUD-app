@@ -12,6 +12,7 @@ import Paper from '@mui/material/Paper';
 import { Button } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeBooks, updateBook } from '../../redux/slice/bookSlice';
+import { Link } from 'react-router-dom';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -35,7 +36,8 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 const ManageBooks = () => {
 
-    const books = useSelector(state=> state.books);
+    const booksss = useSelector(state => console.log(state.books));
+    const books = useSelector(state => state.books);
 
     const dispatch = useDispatch();
 
@@ -65,12 +67,14 @@ const ManageBooks = () => {
                                         <StyledTableCell>{item.author}</StyledTableCell>
                                         <StyledTableCell>{item.price}</StyledTableCell>
                                         <StyledTableCell className='space-x-2'>
-                                            <Button onClick={()=> dispatch(removeBooks(item.id))} variant="outlined">
+                                            <Button onClick={() => dispatch(removeBooks(item.id))} variant="outlined">
                                                 <span className=' text-red-500 font-extrabold'>Delete</span>
                                             </Button>
-                                            <Button onClick={()=> dispatch(updateBook(item))} variant="outlined">
-                                                <span className=' text-orange-500 font-extrabold'>Update</span>
-                                            </Button>
+                                            <Link to={`/updateBooks/${item.id}`}>
+                                                <Button variant="outlined">
+                                                    <span className=' text-orange-500 font-extrabold'>Update</span>
+                                                </Button>
+                                            </Link>
                                         </StyledTableCell>
                                     </StyledTableRow>
                                 ))
@@ -87,13 +91,3 @@ const ManageBooks = () => {
 }
 
 export default ManageBooks;
-
-// const ManageBooks = () => {
-//     return (
-//         <div>
-//             manage books
-//         </div>
-//     );
-// };
-
-// export default ManageBooks;

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const bookSlice = createSlice({
-    name :"books",
+    name: "books",
     initialState : [
         {id: "1", name: "Emoni",price: "100", author: "Emon"},
         {id: "2", name: "Uronto Somoy",price: "200", author: "Elina"},
@@ -13,14 +13,17 @@ const bookSlice = createSlice({
             state.books.push(action.payload)
         },
         removeBooks: (state, action) => {
+            console.log(state.books);
             return state.filter(item => item.id !== action.payload)
         },
-        updateBook: (state, action)=>{
-            const {id, name, author} = action.payload
-            const isBookExist = state.books.find(item=> item.id === id)
-            if(isBookExist){
-                isBookExist.name = name
-                isBookExist.author = author
+
+        updateBook: (state, action) => {
+            const { id, name, author, price } = action.payload;
+            const index = state.findIndex(item => item.id === id);
+            if (index !== -1) {
+                state[index].name = name;
+                state[index].author = author;
+                state[index].price = price;
             }
         }
     }

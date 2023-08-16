@@ -8,6 +8,7 @@ import Login from "../pages/login/Login";
 import Books from "../pages/books/Books";
 import AddBooks from "../pages/addBooks/AddBooks";
 import ManageBooks from "../pages/manageBooks/ManageBooks";
+import UpdateBooks from "../pages/updateBooks/UpdateBooks";
 
 const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
         {
           path: "/manageBooks",
           element: <ManageBooks/>
+        },
+        {
+          path: "/updateBooks/:id",
+          element: <UpdateBooks/>
         },
         {
           path: "/login",
