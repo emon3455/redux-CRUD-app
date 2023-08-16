@@ -10,7 +10,7 @@ const bookSlice = createSlice({
     reducers:{
         showBooks: (state)=> state,
         addbooks: (state, action)=>{
-            state.books.push(action.payload)
+            state.push(action.payload)
         },
         removeBooks: (state, action) => {
             console.log(state.books);

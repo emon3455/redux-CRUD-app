@@ -39,10 +39,6 @@ function ResponsiveAppBar() {
       <Button sx={{ color: { xs: 'black', md: 'white' } }}>
         <Link to="/manageBooks" style={{ textDecoration: 'none' , color: "inherit" }}>Manage-Books</Link>
       </Button>
-
-      <Button sx={{ color: { xs: 'black', md: 'white' } }}>
-        <Link to="/login" style={{ textDecoration: 'none', color:"inherit" }} >Login</Link>
-      </Button>
     </Box>
   </>
 

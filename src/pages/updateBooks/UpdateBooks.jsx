@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { updateBook } from '../../redux/slice/bookSlice';
-import { v4 as uuidv4 } from 'uuid';
+
 
 const UpdateBooks = () => {
 
@@ -65,7 +65,7 @@ const UpdateBooks = () => {
                             ...updatedBookData,
                             price: e.target.value
                         })}
-                        type="text" name='author' defaultValue={updatedBookData.price} className='p-2 border border-red-400 rounded-lg' />
+                        type="text" name='author' defaultValue={updatedBookData.price} className='p-2 border border-green-400 rounded-lg' />
                 </div>
                 <div className="p-2">
                     <Button onClick={handleUpdate} type='submit' variant="contained">
